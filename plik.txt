@@ -1,0 +1,60 @@
+//Program do odczytywania z pliku txt
+
+package com.company;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+
+
+        // ********************** OPCJA I *********************************************************************
+
+//        File file = new File("plik.txt");
+//        int length = (int) file.length();
+//
+//        try (FileInputStream stream = new FileInputStream(file); InputStreamReader reader = new InputStreamReader(stream, StandardCharsets.UTF_8);)
+//            {
+//
+//                char[] data = new char[length];
+//
+//                int readBytes = reader.read(data, 0, length);
+//                if (readBytes != length) {
+//                    throw new IOException("File reading error");
+//                }
+//
+//                String text = new String(data);
+//                System.out.println(text);
+//            }
+//
+//        catch (FileNotFoundException ex) {
+//            ex.printStackTrace();
+//        }
+//        catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
+
+
+        // ********************** OPCJA II *********************************************************************
+
+
+        byte[] data = new byte[0];
+        try
+        {
+            data = Files.readAllBytes(Paths.get("plik.txt"));
+
+        }
+
+        catch(IOException e)
+        {
+            throw e;
+        }
+        String text = new String(data, StandardCharsets.UTF_8);
+        System.out.println(text);
+    }
+    }
+
